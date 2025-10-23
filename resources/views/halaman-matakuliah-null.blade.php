@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<body>
-    <h2>Masukkann kode matakuliah!</h2>
-</body>
+<html>
+    <body>
+        <h1>Masukkan kode matakuliah</h1>
+    </body>
 </html>
