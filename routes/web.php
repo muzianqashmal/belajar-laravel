@@ -52,3 +52,4 @@ use App\Http\Controllers\PelangganController;
 Route::resource('pelanggan', PelangganController::class);
 
     // test
+// tst 19/11
