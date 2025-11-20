@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -17,21 +19,23 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'username' => 'required',
-            'password' => 'required|min:3|regex:/[A-Z]/',
-        ], [
-            'username.required' => 'Username wajib diisi.',
-            'password.required' => 'Password wajib diisi.',
-            'password.min' => 'Password minimal 3 karakter.',
-            'password.regex' => 'Password harus mengandung minimal satu huruf kapital.',
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
 
-        $data = [
-            'username' => $request->input('username'),
-            'password' => $request->input('password'),
-            'pesan' => 'Login berhasil! Selamat datang, ' . $request->input('username')
-        ];
-            return view('halaman-berhasil', $data);
+
+        $user = User::where('email', $request->email)->first();
+
+
+        if ($user && Hash::check($request->password, $user->password)) {
+
+
+            return redirect()->route('dashboard');
+
+        } else {
+
+            return redirect('/auth')->withErrors('Email atau Password Salah!');
+        }
     }
     /**
      * Show the form for creating a new resource.

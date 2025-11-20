@@ -30,8 +30,8 @@
                     <form action="{{ url('/auth/login') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" name="username" class="form-control" value="{{ old('username') }}">
+                            <label for="email" class="form-label">email</label>
+                            <input type="text" name="email" class="form-control" value="{{ old('email') }}">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
