@@ -10,6 +10,7 @@ use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 
 Route::get('/pcr', function () {
     return 'Selamat Datang di Website Kampus PCR!';
@@ -19,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
 
 Route::get('/mahasiswa', function () {
     return 'Hai Mahasiswa';
@@ -60,6 +61,8 @@ Route::get('dashboard', [DashboardController::class, 'index'])
 
 
 Route::resource('pelanggan', PelangganController::class);
+
+Route::resource('user', UserController::class);
 
     // test
 // tst 19/11
