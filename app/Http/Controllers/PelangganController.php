@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Pelanggan;
@@ -12,16 +11,13 @@ class PelangganController extends Controller
      */
     public function index(Request $request)
     {
-        $filterableColumns   = ['gender'];
-        $searchableColumns  = ['first_name', 'last_name', 'email'];
-
-        $data['dataPelanggan'] = Pelanggan::filter($request, $filterableColumns)
-            ->search($request, $searchableColumns)
+        $filterableColumns         = ['gender'];
+        $pageData['dataPelanggan'] = Pelanggan::filter($request, $filterableColumns)
             ->paginate(10)
             ->withQueryString();
 
-        return view('admin.pelanggan.index', $data);
-     }
+        return view('admin.pelanggan.index', $pageData);
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -1,9 +1,10 @@
 <?php
 
 namespace Database\Seeders;
-
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+
 
 class CreateFirstUser extends Seeder
 {
@@ -12,6 +13,10 @@ class CreateFirstUser extends Seeder
      */
     public function run(): void
     {
-        //
+        User::create([
+            'name' => 'Admin',
+            'email' => 'muzian@pcr.ac.id',
+            'password' => Hash::make('gatotkaca'),
+        ]);
     }
 }

@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin',
-            'email' => 'alvin@pcr.ac.id',
-            'password' => Hash::make('BPF2EZ'),
+            'email' => 'muzian@pcr.ac.id',
+            'password' => Hash::make('gatotkaca'),
         ]);
     }
 }
