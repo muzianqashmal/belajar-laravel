@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class PegawaiController extends Controller
 {
-    public function form()
+    public function form()   
     {
         return view('pegawai-form');
     }
